@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Academy - Teacher Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- User Type Selection Screen -->
+    <div id="userTypeScreen" class="screen">
+        <div class="user-type-container">
+            <div class="academy-logo">
+                <i class="fas fa-atom"></i>
+                <h1>Physics Academy</h1>
+                <p>Teacher Management System</p>
+            </div>
+            <div class="user-type-options">
+                <div class="user-type-card" onclick="showLoginScreen('teacher')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Teacher Login</h3>
+                    <p>Access your dashboard</p>
+                </div>
+                <div class="user-type-card" onclick="showLoginScreen('student')">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Student Portal</h3>
+                    <p>Rate teachers & ask questions</p>
+                    <span class="coming-soon-badge">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Login Screen -->
+    <div id="teacherLoginScreen" class="screen">
+        <div class="login-container">
+            <button class="back-btn" onclick="showUserTypeScreen()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <div class="academy-logo">
+                <i class="fas fa-atom"></i>
+                <h1>Physics Academy</h1>
+                <p>Teacher Login</p>
+            </div>
+            <form id="teacherLoginForm" class="login-form">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="teacherUsername" placeholder="Username (e.g., A.azeem)" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="teacherPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Portal (Coming Soon) -->
+    <div id="studentLoginScreen" class="screen">
+        <div class="login-container">
+            <button class="back-btn" onclick="showUserTypeScreen()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <div class="academy-logo">
+                <i class="fas fa-atom"></i>
+                <h1>Physics Academy</h1>
+                <p>Student Portal</p>
+            </div>
+            <div class="coming-soon-content">
+                <i class="fas fa-rocket"></i>
+                <h2>Coming Soon!</h2>
+                <p>We're working hard to bring you an amazing student experience.</p>
+                
+                <button onclick="browseAsVisitor()" class="login-btn" style="margin: 20px auto; max-width: 300px;">
+                    <i class="fas fa-eye"></i> Browse as Visitor
+                </button>
+                
+                <div class="features-preview">
+                    <div class="feature-item">
+                        <i class="fas fa-star"></i>
+                        <span>Rate Your Teachers</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Ask Questions</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Access</span>
+                    </div>
+                </div>
+                <div class="payment-preview">
+                    <p>Payment Methods (Available Soon):</p>
+                    <div class="payment-icons">
+                        <img src="https://via.placeholder.com/80x40/e60000/ffffff?text=Vodafone" alt="Vodafone Cash">
+                        <img src="https://via.placeholder.com/80x40/1976d2/ffffff?text=InstaPay" alt="InstaPay">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Teacher Dashboard -->
+    <div id="mainScreen" class="screen">
+        <header class="main-header">
+            <div class="header-left">
+                <i class="fas fa-atom"></i>
+                <h2>Physics Academy</h2>
+            </div>
+            <div class="header-right">
+                <span id="welcomeText">Welcome</span>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="home">
+                <i class="fas fa-home"></i> Home
+            </button>
+            <button class="nav-btn" data-section="daily-form">
+                <i class="fas fa-clipboard-list"></i> Daily Work
+            </button>
+            <button class="nav-btn" data-section="dashboard">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </button>
+            <button class="nav-btn" data-section="evaluation">
+                <i class="fas fa-chart-bar"></i> Evaluations
+            </button>
+            <button class="nav-btn manager-only" data-section="reports">
+                <i class="fas fa-file-excel"></i> Reports
+            </button>
+            <button class="nav-btn" data-section="schedule">
+                <i class="fas fa-calendar-alt"></i> Schedules
+            </button>
+            <button class="nav-btn" data-section="tasks">
+                <i class="fas fa-tasks"></i> My Tasks
+            </button>
+        </nav>
+
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <div id="managerProfile" class="manager-profile">
+                <div class="profile-header">
+                    <img src="images/Ms. Fatma Salem.jpg" alt="Ms. Fatma Salem" class="profile-photo" onerror="this.src='images/placeholder-female.png'">
+                    <div class="profile-info">
+                        <h3>Ms. Fatma Salem</h3>
+                        <p class="title">Academy Manager & Lead Physics Instructor</p>
+                        <p class="experience">Teaching Experience: Since 2016 (8+ years)</p>
+                        <p class="education">Bachelor of Science in Physics, Ain Shams University</p>
+                    </div>
+                    <div class="contact-icons">
+                        <a href="https://wa.me/201027937435" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/+201027937435" target="_blank" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="mailto:fatmamohamed9003@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.facebook.com/fatma.mohammed.370515" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/fatma.mohamad" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-tree">
+                <h3>Academy Team Structure</h3>
+                <div class="tree-container">
+                    <div class="tier-section">
+                        <h4>Senior Supervisors</h4>
+                        <div class="teachers-grid" id="seniorSupervisorGrid"></div>
+                    </div>
+                    <div class="tier-section">
+                        <h4>Supervisors</h4>
+                        <div class="teachers-grid" id="supervisorGrid"></div>
+                    </div>
+                    <div class="tier-section">
+                        <h4>Team Leaders</h4>
+                        <div class="teachers-grid" id="leaderGrid"></div>
+                    </div>
+                    <div class="tier-section">
+                        <h4>Junior Teachers</h4>
+                        <div class="teachers-grid" id="juniorGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Work Form Section -->
+        <section id="daily-form" class="content-section">
+            <div class="form-container">
+                <h3>Daily Work Submission</h3>
+                <form id="dailyWorkForm" class="daily-form">
+                    <div class="form-header">
+                        <h4 id="formTeacherName">Teacher Name</h4>
+                        <p id="formDate"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Work Type:</label>
+                        <select id="workType" required>
+                            <option value="">Select work type...</option>
+                            <option value="Center">Center</option>
+                            <option value="Online">Online</option>
+                            <option value="Offline meeting">Offline meeting</option>
+                            <option value="Zoom meeting">Zoom meeting</option>
+                            <option value="Day off">Day off</option>
+                            <option value="Annual leave">Annual leave</option>
+                            <option value="UPL">UPL</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="locationGroup">
+                        <label>Location/Details:</label>
+                        <input type="text" id="location" placeholder="e.g., Marathon, Nasa, Harvard, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label>Comments/Notes:</label>
+                        <textarea id="comments" placeholder="Any additional notes or details..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Daily Work
+                    </button>
+                </form>
+                <div id="submissionHistory" class="submission-history">
+                    <h4>Recent Submissions</h4>
+                    <div id="historyList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher Dashboard Section -->
+        <section id="dashboard" class="content-section">
+            <div class="dashboard-container">
+                <h3>Teacher Performance Dashboard</h3>
+                
+                <div class="top-performers">
+                    <h4>Top 3 Teachers This Month</h4>
+                    <div id="topThreeList" class="top-three-grid"></div>
+                </div>
+
+                <div class="my-analytics" id="myAnalytics">
+                    <h4>My Performance</h4>
+                    <div id="personalStats" class="personal-stats"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluation Section -->
+        <section id="evaluation" class="content-section">
+            <div class="evaluation-container">
+                <h3>Teacher Performance Evaluations</h3>
+                
+                <div class="eval-controls manager-only">
+                    <button id="saveEvalBtn" class="action-btn">
+                        <i class="fas fa-save"></i> Save All Evaluations
+                    </button>
+                    <button id="exportEvalBtn" class="action-btn">
+                        <i class="fas fa-download"></i> Export Evaluations
+                    </button>
+                </div>
+
+                <div class="criteria-overview">
+                    <h4>Evaluation Criteria</h4>
+                    <div class="criteria-grid">
+                        <div class="criteria-card">
+                            <h5>Punctuality & Discipline</h5>
+                            <p>Attendance, schedule adherence, time management</p>
+                            <span class="weight">Weight: 20%</span>
+                        </div>
+                        <div class="criteria-card">
+                            <h5>Classroom Management</h5>
+                            <p>Class control, activity organization, professional handling</p>
+                            <span class="weight">Weight: 25%</span>
+                        </div>
+                        <div class="criteria-card">
+                            <h5>Communication & Collaboration</h5>
+                            <p>Reports, responsiveness, teamwork</p>
+                            <span class="weight">Weight: 20%</span>
+                        </div>
+                        <div class="criteria-card">
+                            <h5>Policy Compliance</h5>
+                            <p>Company rules, academic standards, confidentiality</p>
+                            <span class="weight">Weight: 15%</span>
+                        </div>
+                        <div class="criteria-card">
+                            <h5>Professional Development</h5>
+                            <p>Training participation, skill improvement</p>
+                            <span class="weight">Weight: 20%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evaluation-table-container" id="evaluationTableContainer">
+                    <table id="evaluationTable" class="evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Teacher</th>
+                                <th>Punctuality<br><small>(20%)</small></th>
+                                <th>Classroom Mgmt<br><small>(25%)</small></th>
+                                <th>Communication<br><small>(20%)</small></th>
+                                <th>Policy Compliance<br><small>(15%)</small></th>
+                                <th>Development<br><small>(20%)</small></th>
+                                <th>Total Score</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="evaluationBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="content-section">
+            <div class="reports-container">
+                <h3>Monthly Work Reports</h3>
+                <div class="report-controls">
+                    <div class="form-group">
+                        <label>Select Month:</label>
+                        <input type="month" id="reportMonth" value="">
+                    </div>
+                    <button id="generateReportBtn" class="action-btn">
+                        <i class="fas fa-chart-line"></i> Generate Report
+                    </button>
+                    <button id="exportExcelBtn" class="action-btn">
+                        <i class="fas fa-file-excel"></i> Export to Excel
+                    </button>
+                    <button id="printReportBtn" class="action-btn">
+                        <i class="fas fa-print"></i> Print Report
+                    </button>
+                </div>
+                <div id="reportResults" class="report-results">
+                    <table id="reportTable" class="report-table">
+                        <thead id="reportHeader"></thead>
+                        <tbody id="reportBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="content-section">
+            <div class="schedule-container">
+                <h3>Weekly Schedules</h3>
+                <div class="schedule-controls">
+                    <div class="form-group">
+                        <label>Select Week:</label>
+                        <input type="week" id="scheduleWeek" value="">
+                    </div>
+                    <button id="createScheduleBtn" class="action-btn manager-only">
+                        <i class="fas fa-plus"></i> Create New Schedule
+                    </button>
+                </div>
+                <div id="scheduleContent" class="schedule-content">
+                    <p class="schedule-placeholder">Select a week to view schedules</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Tasks Section -->
+        <section id="tasks" class="content-section">
+            <div class="tasks-container">
+                <h3>Personal Tasks Management</h3>
+                
+                <div class="tasks-controls manager-only">
+                    <button id="createTaskBtn" class="action-btn">
+                        <i class="fas fa-plus"></i> Assign New Task
+                    </button>
+                </div>
+
+                <div class="tasks-list" id="tasksList">
+                    <p class="no-tasks">No tasks assigned yet</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Teacher Modal -->
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close-task">&times;</span>
+            <div id="taskModalContent">
+                <h3>Assign New Task</h3>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label>Assign To:</label>
+                        <select id="taskTeacher" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Task Title:</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="taskDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Deadline:</label>
+                        <input type="date" id="taskDeadline" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-check"></i> Assign Task
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="messageContainer" class="message-container"></div>
+
+    <script src="js/data.js"></script>
+    <script type="module">
+        // Firebase Configuration
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getDatabase, ref, set, get, update, push, onValue, child } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCFvRGZA7lUhQY_NP6BSGt6Uz4yyuzq4YY",
+            authDomain: "physics-academy-6c8e4.firebaseapp.com",
+            databaseURL: "https://physics-academy-6c8e4-default-rtdb.firebaseio.com",
+            projectId: "physics-academy-6c8e4",
+            storageBucket: "physics-academy-6c8e4.appspot.com"
+        };
+
+        const app = initializeApp(firebaseConfig);
+       window.db = getDatabase(app);
+       window.dbRef = (db, path) => ref(db, path);  // wrapper so old code still works
+       window.dbSet = (refObj, data) => set(refObj, data);
+       window.dbGet = (refObj) => get(refObj);
+       window.dbUpdate = (refObj, data) => update(refObj, data);
+       window.dbPush = (refObj, data) => push(refObj, data);
+       window.dbOnValue = (refObj, callback) => onValue(refObj, callback);
+       window.dbChild = (refObj, path) => child(refObj, path);
+
+
+        // Global visitor function
+        window.browseAsVisitor = function() {
+            document.getElementById('studentLoginScreen').style.display = 'none';
+            document.getElementById('userTypeScreen').style.display = 'none';
+            document.getElementById('mainScreen').style.display = 'block';
+            document.getElementById('mainScreen').classList.add('active');
+            
+            // Create temporary visitor user
+            window.app.currentUser = {
+                username: 'visitor',
+                fullName: 'Visitor',
+                role: 'visitor',
+                type: 'Visitor'
+            };
+            
+            // Hide navigation for visitors
+            document.querySelector('.main-nav').style.display = 'none';
+            
+            // Update header
+            document.getElementById('welcomeText').textContent = 'Browsing as Visitor';
+            
+            // Show only home section
+            window.app.showSection('home');
+            window.app.loadTeacherTree();
+        };
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
