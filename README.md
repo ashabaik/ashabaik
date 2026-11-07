@@ -1,22 +1,23 @@
 # Hi, I'm Ahmed
 
-Data engineer from Cairo. I spend most of my time building data platforms and ETL/ELT pipelines — currently at VOIS (Vodafone Intelligent Solutions) working on large-scale telecom data. Before that I built the enterprise data platform for Leejam Sports Company (Fitness Time) in Saudi Arabia, and I've done freelance data work on the side, including a six-month ETL project for the World Health Organization covering Egypt, Sudan and Gaza response data.
+Data engineer and web developer from Cairo.
+I build data platforms, web apps, and automations, and I help small businesses grow online.
 
-## What I work with
+## What I do
+- **Data engineering:** pipelines and warehouses on Microsoft Fabric, AWS, and GCP
+- **Web development:** websites and web apps with HTML, CSS, and JavaScript
+- **Social media:** I run a teacher's page — posts, content, videos, and ads, made with AI tools
 
-Microsoft Fabric is my main stack these days — Lakehouse, Warehouse, Data Factory, notebooks, the whole platform. Around that: PySpark, Python, SQL, AWS (S3, Lambda, Glue), GCP (BigQuery), PostgreSQL, SQL Server, Oracle, MongoDB, and Power BI for the reporting side.
+## Projects
+- **[fabric-enterprise-dwh-pipeline](https://github.com/ashabaik/fabric-enterprise-dwh-pipeline)** — architecture of an enterprise data warehouse on Microsoft Fabric
+- **[health-metrics-ocr-pipeline](https://github.com/ashabaik/health-metrics-ocr-pipeline)** — OCR pipeline that turns report images into warehouse tables
+- **[secure-aws-etl-pipeline](https://github.com/ashabaik/secure-aws-etl-pipeline)** — secure ETL on AWS: KMS encryption, PII masking, IAM
+- **[postgres-clickhouse-incremental-sync](https://github.com/ashabaik/postgres-clickhouse-incremental-sync)** — incremental Spark sync from PostgreSQL to ClickHouse
+- **Physics Academy platform** — a live web app used every day (private repo)
 
-## Projects here
-
-- **fabric-enterprise-dwh-pipeline** — architecture write-up of an enterprise data warehouse pipeline I built on Fabric: source systems to landing zone to star schema, with audit tracking
-- **health-metrics-ocr-pipeline** — Fabric notebook pipeline that turns body-composition report images into warehouse tables using Azure AI Vision OCR, with checkpoint-based incremental loading
-- **bosta-secure-data-pipeline** — case study on securing an ETL flow on AWS: KMS encryption, PII masking, IAM role separation
-- **koinz-case-study** — incremental Spark job syncing PostgreSQL to ClickHouse on a 30-minute schedule
-- **data-engineering-practice** — practice scripts and experiments (S3 ETL, sales data warehouse loads, MongoDB)
-
-I also build web apps when the project is interesting — currently maintaining a services platform for Physics Academy (private repo).
+## Tools
+Microsoft Fabric · PySpark · Python · SQL · AWS · GCP · PostgreSQL · SQL Server · Oracle · HTML · CSS · JavaScript · Power BI
 
 ## Contact
-
 - LinkedIn: [linkedin.com/in/ahmed-mohamed-280481273](https://www.linkedin.com/in/ahmed-mohamed-280481273)
 - Email: shabaik1996@gmail.com
