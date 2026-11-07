@@ -8,7 +8,13 @@ I build data platforms, web apps, and automations, and I help small businesses g
 - **Web development:** websites and web apps with HTML, CSS, and JavaScript
 - **Social media:** I run a teacher's page — posts, content, videos, and ads, made with AI tools
 
-## Projects
+## Web projects
+See my **[web portfolio](https://github.com/ashabaik/web-portfolio)** — live websites with screenshots:
+- A teacher website, live and in use
+- A ticketing site redesign with an interactive seat map
+- A pre-launch landing page
+
+## Data projects
 - **[fabric-enterprise-dwh-pipeline](https://github.com/ashabaik/fabric-enterprise-dwh-pipeline)** — architecture of an enterprise data warehouse on Microsoft Fabric
 - **[health-metrics-ocr-pipeline](https://github.com/ashabaik/health-metrics-ocr-pipeline)** — OCR pipeline that turns report images into warehouse tables
 - **[secure-aws-etl-pipeline](https://github.com/ashabaik/secure-aws-etl-pipeline)** — secure ETL on AWS: KMS encryption, PII masking, IAM
